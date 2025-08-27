@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollinations Image Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 512px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Générateur d'images (Pollinations)</h1>
+  <p>Écris une description et clique sur <b>Générer</b></p>
+
+  <input type="text" id="prompt" placeholder="Ex: un chat cyberpunk dans une ville futuriste" size="50">
+  <br>
+  <button onclick="generateImage()">Générer</button>
+
+  <div>
+    <img id="result" src="" alt="Image générée apparaîtra ici">
+  </div>
+
+  <script>
+    async function generateImage() {
+      const prompt = document.getElementById("prompt").value || "un paysage futuriste";
+      const url = `https://pollinations.ai/p/${encodeURIComponent(prompt)}?width=512&height=512&nologo=true`;
+
+      const res = await fetch(url);
+      if (!res.ok) {
+        alert("Erreur lors de la génération de l'image");
+        return;
+      }
+      const blob = await res.blob();
+      document.getElementById("result").src = URL.createObjectURL(blob);
+    }
+  </script>
+</body>
+</html>

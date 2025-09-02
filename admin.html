@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Mon Journal d'Actualités</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Panneau d'Administration</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login-section">
+            <h2>Accès Administrateur</h2>
+            <form id="login-form">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required>
+                <button type="submit">Se connecter</button>
+            </form>
+        </section>
+
+        <section id="admin-content" style="display: none;">
+            <h2>Créer un nouvel article</h2>
+            <form id="post-form">
+                <label for="title">Titre :</label>
+                <input type="text" id="title" required>
+
+                <label for="content">Contenu :</label>
+                <textarea id="content" rows="10" required></textarea>
+
+                <button type="submit">Enregistrer l'article</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mon Journal d'Actualités</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
